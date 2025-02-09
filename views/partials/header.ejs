@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Document</title>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <nav class="navbar navbar-expand">
+        <div class="container-fluid d-flex align-items-center">
+            <a href="/"><img src="/images/rezized_logo.png" alt=""></a>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link active" href="/games">Browse</a></li>
+                <li class="nav-item"><a class="nav-link active" href="/games/new">Sell</a></li>
+                <%if(!currUser){%>
+                    <li class="nav-item"><a class="nav-link active" href="/users/new">Sign Up</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/users/login">Login</a></li>
+                <%} else {%>
+                    <li class="nav-item"><a class="nav-link active" href='/users/profile'>My Account</a>
+                    <li class="nav-item"><a class="nav-link active" href='/users/logout'>Logout</a>
+                <%}%>
+                
+                
+                
+
+                
+            </ul>
+            <form class="d-flex" action="/games/search" method = "GET" >
+                <input class="form-control me-2" name="search" type="search" placeholder="Search" id="navSearch" aria-label="Search">
+                <button type="submit" class="btn btn-dark me-2">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <% if(errors.length > 0) {%>
+        <% errors.forEach(message=>{%>
+            <div class="alert alert-danger text-center">
+                <%=message%>
+            </div>
+            <%});%>
+                <%}%>
+    
+    <% if(successes.length > 0) {%>
+
+        <% successes.forEach(message=>{%>
+            <div class="alert alert-success text-center">
+                <%=message%>
+            </div>
+            <%});%>
+                <%}%>

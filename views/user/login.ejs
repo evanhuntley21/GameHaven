@@ -1,0 +1,30 @@
+<%- include('../partials/header.ejs')%>
+    <section class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col mt-4">
+                <h2>Log In</h2>
+            </div>
+        </div>
+    </section>
+    <form action="/users/login" class="container mt-5 listingform" method = "POST">
+        <fieldset class="row align-items-center mb-3">
+            <div class="col justify-content-end d-flex">
+                <label class="form-label" for="email">Email:</label>
+            </div>
+            <div class="col-8"><input class="form-control" type="email" id="email" name="email"></div>
+        </fieldset>
+        <fieldset class="row align-items-center mb-3">
+            <div class="col justify-content-end d-flex">
+                <label class="form-label" for="password">Password:</label>
+            </div>
+            <div class="col-8"><input class="form-control"  type="password" id="password" name="password" required></div>
+        </fieldset>
+        <fieldset class="row mb-3">
+            <div class="col">
+            </div>
+            <div class="col-8"><button class="btn btn-primary col-12" type="submit" name="Submit" id="SubmitForm">Login</button></div>
+        </fieldset>
+    </form>
+    <div class="d-flex flex-grow-1"></div>
+<%- include('../partials/footer.ejs')%>

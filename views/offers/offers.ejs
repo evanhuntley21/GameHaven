@@ -1,0 +1,35 @@
+<%- include('../partials/header.ejs')%>
+<h1>Offers recieved for <%=game.title%></h1>
+<div class="justify-content-center" id="outershell">
+<table class="table">
+    <thead>
+      <tr>
+        <th class="col-6 text-center">Buyer</th>
+        <th class="col-2"></th>
+        <th class="col-2 text-center">Amount</th>
+        <th class="col-2"></th>
+        <th class="col-2 text-center">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+<%if(offers.length){%>
+    <%offers.forEach(offer =>{%>
+        <tr>
+          <th class="align-middle"><div class="col d-flex justify-content-center"><%=offer.buyer.firstName + " " + offer.buyer.lastName%></div></th>
+          <td class="align-middle"> <div class="col d-flex justify-content-center"></div></td>
+          <td class="align-middle"><div class="col d-flex justify-content-center">$<%=offer.amount%></div></td>
+          <td class="align-middle"> <div class="col d-flex justify-content-center"></div></td>
+          <%if(game.active){%>
+          <td class="align-middle"><div class="col d-flex justify-content-center"><form class="container mt-5 listingform"><button type="submit" class="btn btn-success mb-2 mt-2"
+            formmethod = "POST" formaction="/games/<%=game._id%>/offers/<%=offer._id%>?_method=PUT">Accept Offer</button></form></div></td>
+          <%}else{%>
+          <td class="align-middle"><div><%=offer.status%></div></td>
+          <%}%>
+        </tr>
+
+
+    <%})%>
+<%}%>
+  </table>
+</div>
+<%- include('../partials/footer.ejs')%>

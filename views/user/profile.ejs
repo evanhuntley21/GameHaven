@@ -1,0 +1,56 @@
+<%- include('../partials/header.ejs')%>
+<div class="justify-content-center" id="outershell">
+    <h2 class="text-center mb-5">Hello, <%=user.firstName%>. Below are your current listings</h2>
+        <table class="table">
+            <thead>
+              <tr>
+                <th class="col-6 text-center">Item</th>
+                <th class="col-2"></th>
+                <th class="col-2 text-center">Actions</th>
+                <th class="col-2"></th>
+                <th class="col-2 text-center">Active?</th>
+              </tr>
+            </thead>
+            <tbody>
+        <%if(games.length){%>
+            <%games.forEach(game =>{%>
+                <tr>
+                  <th class="align-middle text-center"><a href='/games/<%=game.id%>' ><%=game.title%></a></th>
+                  <td class="align-middle"> <div class="col d-flex justify-content-center"><form class="profile_form"><button type="submit" class="btn btn-success mb-2" formmethod = "GET" formaction = "/games/<%= game.id%>/edit">Modify Item</button></form></div></td>
+                  <td class="align-middle"><div class="col d-flex justify-content-center"><form class="profile_form"><button type="submit" class="btn btn-danger mb-2"formmethod = "POST" formaction = "/games/<%= game.id%>?_method=DELETE">Delete Item</button></form></div></td>
+                  <td class="align-middle"><div class="col d-flex justify-content-center"><form class="profile_form"><button type="submit" class="btn btn-info mb-2"formmethod = "GET" formaction = "/games/<%= game.id%>/offers">View Offers</button></form></div></td>
+                  <td class="align-middle text-center"><%=game.active ?"Yes":"No"%></td>
+                </tr>
+
+
+            <%})%>
+        <%}%>
+          </table>
+        <table class="table">
+            <thead>
+              <tr>
+                <th class="col-6 text-center">Item</th>
+                <th class="col-2"></th>
+                <th class="col-2 text-center">Status</th>
+                <th class="col-2"></th>
+                <th class="col-2 text-center">Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+        <h2 class="text-center mb-5">Below are your current offers</h2>
+        <%if(offers.length){%>
+            <%offers.forEach(offer =>{%>
+                <tr>
+                  <th class="align-middle text-center"><a href='/games/<%=offer.gameListing.id%>'><%=offer.gameListing.title%></a></th>
+                  <td class="align-middle"> <div class="col d-flex justify-content-center"></div></td>
+                  <td class="align-middle"><div class="col d-flex justify-content-center"><%=offer.status%></div></td>
+                  <td class="align-middle"> <div class="col d-flex justify-content-center"></div></td>
+                  <td class="align-middle text-center">$<%=offer.amount%></td>
+                </tr>
+
+
+            <%})%>
+        <%}%>
+          </table>
+  </div>
+<%- include('../partials/footer.ejs')%>

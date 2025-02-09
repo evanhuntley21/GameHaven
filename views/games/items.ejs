@@ -1,0 +1,34 @@
+<%- include('../partials/header.ejs')%>
+    <section class="container text-center mb-5">
+        <% if(games.length){ %>
+            <% let count = 1; %>
+            <div class="row d-flex align-items-center justify-content-center">
+                <% games.forEach(game => {%>
+                    <% if(count%3 === 0){%>
+                        </div>
+                        <div class="row d-flex align-items-center justify-content-center">
+                        <%}%>
+                    <div class="col-3 mx-4 mt-5 listingContainer rounded">
+                        <h5><%=game.title%></h5>
+                        <div class="itemContainer rounded"><img class="imgholder"
+                            src="/images/<%=game.image%>" alt=""></div>
+                        <% if(games.offers === "1"){%>
+                        <h5>1 offer</h5>
+                        <%}
+                        else{%>
+                            <h5><%=game.offers%> offers</h5>
+                        <%}%>
+                        <p class="price">$<%=game.price%></p>
+                        <p class="itemCondition"><%=game.condition%></p>
+                        <a class="btn btn-info mb-2" href='/games/<%=game.id%>' role="button">View Item</a>
+                        <div class="row"></div>
+                    </div>
+                    <%});%>
+                </div>
+                <%}else{%>
+                    <h1>No Items currently listed. Please check back later!</h1>
+                <%}%>
+
+        
+    </section>
+<%- include('../partials/footer.ejs')%>

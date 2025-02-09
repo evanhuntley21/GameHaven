@@ -1,0 +1,71 @@
+.itemContainer{
+    overflow: hidden;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.listingContainer *{
+    margin: 0 auto;
+}
+.listingContainer{
+    background-color: #808080;
+    padding:0;
+    border: 3px solid #555555;
+}
+nav{
+    background-color: #1a1a1a;
+    height: 100px;
+    margin-top: 0;
+}
+footer div{
+    width: 100vw;
+}
+footer{
+    background-color: #1a1a1a;
+    height: 60px;
+    margin-bottom: 0;
+}
+body{
+    background-color: #e0e0e0;
+}
+nav *{
+    color: #ffffff !important;
+    font-family: sans-serif
+}
+.listingContainer h5{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.iconbox i{
+    color: white;
+}
+p{
+    font-family: Tahoma;
+}
+.homeinfo p{
+    text-align: left;
+}
+div h4{
+    color:white;
+}
+body::-webkit-scrollbar {
+    width: 0 !important;
+}
+#navSearch{
+    color:black !important;
+}
+#outershell{
+    margin: 0 auto;
+    width: 45%;
+}
+.alert{
+    margin-top: 50px;
+    width: 40%;
+    margin-left:auto;
+    margin-right: auto;
+}
+.profile_form{
+    margin-bottom: 0 !important;
+}

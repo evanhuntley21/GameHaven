@@ -1,0 +1,60 @@
+<%- include('../partials/header.ejs')%>
+    <section class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col mt-4">
+                <h2>List Your Games Here!</h2>
+            </div>
+        </div>
+    </section>
+    <form action="/games" class="container mt-5 listingform" method = "POST" enctype="multipart/form-data">
+        <fieldset class="row align-items-center mb-3">
+
+            <div class="col justify-content-end d-flex">
+                <label class="form-label" for="Condition">Condition:</label>
+            </div>
+            <div class="col-8">
+                <select class="form-select" name="condition" id="Condition" required>
+                    <option selected label ="No Condition Selected"></option>
+                    <option>Like New</option>
+                    <option>Slightly Used</option>
+                    <option>Moderately Used</option>
+                    <option>Heavily Used</option>
+                    <option>Needs Repair</option>
+                </select>
+            </div>
+        </fieldset>
+        <fieldset class="row align-items-center mb-3">
+            <div class="col justify-content-end d-flex">
+                <label class="form-label" for="gametitle">Title:</label>
+            </div>
+            <div class="col-8"><input class="form-control" type="text" name="title" id="gametitle" required></div>
+
+        </fieldset>
+        <fieldset class="row align-items-center mb-3">
+            <div class="col justify-content-end d-flex">
+                <label class="form-label" for="itemprice">Price:</label>
+            </div>
+            <div class="col-8"><input class="form-control" type="number" name="price" id="itemprice" minvalue ="0.01" required></div>
+        </fieldset>
+        <fieldset class="row align-items-center mb-3">
+            <div class="col justify-content-end d-flex">
+                <label class="form-label" for="details">Details:</label>
+            </div>
+            <div class="col-8"><textarea class="form-control" name="details" id="details" minlength = "20" maxlength="500" required></textarea></div>
+        </fieldset>
+        <fieldset class="row align-items-center mb-3">
+            <div class="col justify-content-end d-flex">
+                <label class="form-label" for="gameFile">Image:</label>
+            </div>
+            <div class="col-8"><input class="form-control" type="file" name="image" id="gameFile" required></div>
+        </fieldset>
+        <fieldset class="row mb-3">
+            <div class="col">
+            </div>
+            <div class="col-8"><button class="btn btn-primary col-12" type="submit" name="Submit" id="SubmitForm">Submit
+                    Form</button></div>
+        </fieldset>
+    </form>
+    <div class="d-flex flex-grow-1"></div>
+<%- include('../partials/footer.ejs')%>
